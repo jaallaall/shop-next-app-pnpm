@@ -1,0 +1,153 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  small {
+    @apply text-gray-400 mr-1
+  }
+
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: dana;
+    font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/dana/bold/dana-fanum-bold.otf");
+    src: url("/fonts/dana/bold/dana-fanum-bold.otf?#iefix") format("embedded-opentype"), url("/fonts/dana/bold/dana-fanum-bold.woff2") format("woff2"),
+      url("/fonts/dana/bold/dana-fanum-bold.woff") format("woff");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: dana;
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/dana/medium/dana-fanum-medium.otf");
+    src: url("/fonts/dana/medium/dana-fanum-medium.otf?#iefix") format("embedded-opentype"), url("/fonts/dana/medium/dana-fanum-medium.woff2") format("woff2"),
+      url("/fonts/dana/medium/dana-fanum-medium.woff") format("woff");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: dana;
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/dana/light/dana-fanum-light.otf");
+    src: url("/fonts/dana/light/dana-fanum-light.otf?#iefix") format("embedded-opentype"), url("/fonts/dana/light/dana-fanum-light.woff2") format("woff2"),
+      url("/fonts/dana/light/dana-fanum-light.woff") format("woff");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: dana;
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/dana/regular/dana-fanum-regular.otf");
+    src: url("/fonts/dana/regular/dana-fanum-regular.otf?#iefix") format("embedded-opentype"), url("/fonts/dana/regular/dana-fanum-regular.woff2") format("woff2"),
+      url("/fonts/dana/regular/dana-fanum-regular.woff") format("woff");
+    font-display: swap;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 15px;
+    text-align: right;
+    color: #555;
+    background-color: #f8f8f8;
+    position: relative;
+  }
+
+  /* body>div[data-aria-hidden='true'] {
+    overflow: hidden;
+  } */
+
+  footer {
+    margin-top: auto;
+  }
+
+  section {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  @media (min-width:576px) {
+    section {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
+
+  a:hover {
+    @apply text-primary
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-\[16px\] {
+  color: #000
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.btnIcon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+  fill: currentColor;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  /* direction: rtl; */
+}
+
+[data-floating-ui-scroll-lock] {
+  padding-right: 0 !important;
+}
+
+[data-floating-ui-portal]>div {
+  z-index: 999;
+  overflow: hidden !important;
+}
+
+/* .select~ul {
+  position: relative !important;
+  top: 0 !important
+} */
