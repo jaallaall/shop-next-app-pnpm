@@ -124,7 +124,6 @@ const CartDetails: React.FC = (): React.ReactElement => {
         </label>
       </div>
       {cart?.map((item) => {
-        console.log(item);
         return (
           <div key={item.id} className="py-3 border-t">
             <div className="flex justify-between">

@@ -54,13 +54,13 @@ export const cartSlice = createSlice({
     },
     decrementQuantity: (state, action) => {
       const item = state.cartItems.find((item) => item.id === action.payload);
-      if (item?.quantity === 1) {
+      if (item?.quantity === 1 || String(item?.quantity) === "") {
         const index = state.cartItems.findIndex(
           (item) => item.id === action.payload
         );
         state.cartItems.splice(index, 1);
       } else {
-        if (item) item.quantity--;
+        if (item && item.quantity > 0) item.quantity--;
       }
     },
     removeFromCart: (state, action) => {
