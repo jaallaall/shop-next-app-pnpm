@@ -152,8 +152,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
                   type="number"
                   className="peer block min-h-[auto] rounded border bg-gray-100 py-[.22rem] px-2 leading-[1.6] outline-none max-w-[100px] mr-2"
                   onChange={(e) => handleChange(e, item)}
-                  value={item.quantity}
-                  min={0}
+                  // value={item.quantity}
                 />
               </span>
             </div>
@@ -172,7 +171,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
   );
 
   const btn = (
-    <button className="mr-4 flex">
+    <button className="md:mr-4 md:flex block">
       <span className="relative md:inline-block block w-5 h-5 md:mb-0 mb-3 m-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -44,6 +44,9 @@ export const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       state.cartItems[itemIndex].quantity = action.payload.quantity;
+      if (state.cartItems[itemIndex].quantity === 0) {
+        state.cartItems.splice(itemIndex, 1);
+      }
     },
     incrementQuantity: (state, action) => {
       const item = state?.cartItems?.find((item) => item.id === action.payload);
