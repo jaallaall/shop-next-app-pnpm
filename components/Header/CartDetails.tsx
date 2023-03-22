@@ -60,7 +60,8 @@ const CartDetails: React.FC = (): React.ReactElement => {
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, item: Props) => {
       const { value } = e.target;
-      dispatch(valueQuantity({ ...item, quantity: Number(value) }));
+      const num = Number(value) === 0 ? "" : Number(value);
+      dispatch(valueQuantity({ ...item, quantity: num }));
     },
     [dispatch]
   );
@@ -123,6 +124,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
         </label>
       </div>
       {cart?.map((item) => {
+        console.log(item);
         return (
           <div key={item.id} className="py-3 border-t">
             <div className="flex justify-between">
@@ -152,7 +154,8 @@ const CartDetails: React.FC = (): React.ReactElement => {
                   type="number"
                   className="peer block min-h-[auto] rounded border bg-gray-100 py-[.22rem] px-2 leading-[1.6] outline-none max-w-[100px] mr-2"
                   onChange={(e) => handleChange(e, item)}
-                  // value={item.quantity}
+                  value={item.quantity}
+                  min={0}
                 />
               </span>
             </div>
