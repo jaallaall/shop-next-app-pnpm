@@ -4,7 +4,7 @@ const PurchaseProcess: React.FC = (): React.ReactElement => {
   return (
     <>
       <h3>فرآیند خرید از پایپ‌ کالا</h3>
-      <div className="md:grid md:grid-cols-4 grid-cols-2 gap-4 mt-12">
+      <div className="grid md:grid-cols-4 md:gap-4 gap-y-10 mt-12">
         <div className="bg-white p-3 rounded-md shadow-sm">
           <span className="w-12 h-12 block relative before:bg-danger-100 before:w-14 before:h-14 before:block before:absolute before:top-0 before:right-0 before:rounded-full -mt-10 mb-5">
             <Image

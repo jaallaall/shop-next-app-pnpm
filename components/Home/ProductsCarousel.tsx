@@ -25,12 +25,12 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
       </div>
       <Swiper
         // onSwiper={setSwiperRef}
-        slidesPerView={1}
+        slidesPerView={1.3}
         centeredSlides={true}
         spaceBetween={20}
         breakpoints={{
           640: {
-            slidesPerView: 1,
+            slidesPerView: 1.5,
             spaceBetween: 10,
           },
           768: {

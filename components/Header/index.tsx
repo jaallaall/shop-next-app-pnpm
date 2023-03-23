@@ -31,11 +31,11 @@ const Header: React.FC = (): React.ReactElement => {
       }}
     >
       <div
-        className={`container mx-auto flex items-center px-2 py-3`}
+        className={`container mx-auto grid md:grid-cols-[1fr_400px_300px] grid-cols-[1fr_50px_1fr] items-center px-2 py-3`}
         ref={ref}
       >
         {!matches && (
-          <div className="flex-grow">
+          <div>
             <button
               className="mr-2 border-0 bg-transparent py-2 text-xl leading-none transition-shadow duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 dark:hover:text-white dark:focus:text-white lg:hidden"
               type="button"
@@ -61,7 +61,7 @@ const Header: React.FC = (): React.ReactElement => {
           </div>
         )}
 
-        <Link href="/" className="flex-grow">
+        <Link href="/">
           <Image
             src="/static/images/logo.svg"
             alt="logo"
@@ -70,13 +70,9 @@ const Header: React.FC = (): React.ReactElement => {
             className="md:m-0 m-auto"
           />
         </Link>
-        {matches && (
-          <div className="md:px-8">
-            <Search />
-          </div>
-        )}
+        {matches && <Search />}
 
-        <div className="flex">
+        <div className="flex justify-end">
           <Link href="/login">
             <svg
               xmlns="http://www.w3.org/2000/svg"

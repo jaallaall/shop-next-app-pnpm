@@ -143,8 +143,11 @@ h6,
 }
 
 [data-floating-ui-portal]>div {
-  z-index: 999;
   overflow: hidden !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /* .select~ul {

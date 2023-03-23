@@ -62,7 +62,7 @@ const NavbarMenu: React.FC<{ show: boolean }> = ({
               </a>
             </li>
             <li onClick={() => setOpen(true)}>
-              <button className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 p-2">
+              <button className="md:block hidden transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 p-2">
                 {"ارسال لیست خرید"}
               </button>
             </li>
@@ -77,13 +77,15 @@ const NavbarMenu: React.FC<{ show: boolean }> = ({
           </ul>
         </div>
       </div>
-      <Dialog
-        open={open}
-        handler={() => setOpen(false)}
-        className="md:my-5 mt-0 flex flex-col h-[calc(100vh_-_50px)] lg:max-w-[30%] lg:min-w-0 min-w-full"
-      >
-        <SendShoppingList />
-      </Dialog>
+      {matches && (
+        <Dialog
+          open={open}
+          handler={() => setOpen(false)}
+          className="md:my-5 mt-0 flex flex-col h-[calc(100vh_-_50px)] lg:max-w-[30%] lg:min-w-0 min-w-full"
+        >
+          <SendShoppingList />
+        </Dialog>
+      )}
     </>
   );
 };

@@ -6,7 +6,7 @@ const ProductsCategorization: React.FC = (): React.ReactElement => {
   return (
     <div>
       <h3 className="mb-6">دسته بندی محصولات</h3>
-      <div className="grid md:grid-cols-5 grid-cols-1 gap-2">
+      <div className="grid md:grid-cols-5 grid-cols-2 gap-2">
         {prods.map((item) => {
           return (
             <div
