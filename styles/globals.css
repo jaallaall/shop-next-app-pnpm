@@ -150,7 +150,18 @@ h6,
   right: 0;
 }
 
-/* .select~ul {
-  position: relative !important;
-  top: 0 !important
-} */
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  cursor: pointer;
+  transition-property: width;
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: 0 !important;
+}
+
+.pagination-slider .swiper-pagination-bullet-active {
+  width: 36px !important;
+  border-radius: 10px;
+
+}

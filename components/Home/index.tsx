@@ -10,7 +10,7 @@ import SuccessReport from "./SuccessReport";
 const Home: React.FC = (): React.ReactElement => {
   return (
     <>
-      <section>
+      <section className="!pb-0">
         <div className="container mx-auto px-2">
           <Slider />
         </div>

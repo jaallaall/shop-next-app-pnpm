@@ -30,7 +30,7 @@ const SendShoppingList: React.FC = (): React.ReactElement => {
   return (
     <>
       <h3 className="hidden md:block p-3">ارسال لیست خرید</h3>
-      <div className="scrollbar flex-auto p-3">
+      <div className="scrollbar p-3">
         <div
           className="mb-3 inline-flex w-full items-center rounded-lg bg-primary-light py-5 px-6 text-base text-primary"
           role="alert"
@@ -143,7 +143,7 @@ const SendShoppingList: React.FC = (): React.ReactElement => {
         </Accordion>
       </div>
 
-      <div className="p-3">
+      <div className="p-3 mt-auto">
         <button
           className="group inline-flex items-center justify-center rounded-lg py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600 w-full mt-3"
           type="submit"

@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 
-import { Navigation, Pagination } from "swiper";
 import Image from "next/image";
+import { SetStateAction, useState } from "react";
+import { Pagination } from "swiper";
 
 const report = [
   {
@@ -34,6 +35,7 @@ const report = [
 ];
 
 const SuccessReport: React.FC = (): React.ReactElement => {
+  const [paginationRef, setPaginationRef] = useState<HTMLElement | null>(null);
   return (
     <>
       <div className="flex justify-between mb-6">
@@ -58,7 +60,8 @@ const SuccessReport: React.FC = (): React.ReactElement => {
             spaceBetween: 20,
           },
         }}
-        // modules={[Pagination, Navigation]}
+        pagination={{ el: paginationRef, clickable: true }}
+        modules={[Pagination]}
         className="mySwiper"
         dir="rtl"
       >
@@ -85,6 +88,12 @@ const SuccessReport: React.FC = (): React.ReactElement => {
           );
         })}
       </Swiper>
+      <div
+        ref={(node: SetStateAction<HTMLElement | null>) =>
+          setPaginationRef(node)
+        }
+        className="flex justify-center py-3 gap-x-1 pagination-slider"
+      />
     </>
   );
 };

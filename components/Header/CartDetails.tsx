@@ -161,7 +161,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
           </div>
         );
       })}
-      <div className="sticky bottom-0 mt-6 bg-white md:p-3">
+      <div className="sticky bottom-0 mt-auto bg-white md:p-3">
         <Button
           className="w-full"
           onClick={() => router.push("/invoicedetail")}
@@ -209,7 +209,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
             </button>
             <h5>خلاصه پیش‌ فاکتور</h5>
           </div>
-          <div className="scrollbar h-screen p-3">{basket}</div>
+          <div className="scrollbar h-screen p-3 flex flex-col">{basket}</div>
         </Dialog>
       </>
     );
