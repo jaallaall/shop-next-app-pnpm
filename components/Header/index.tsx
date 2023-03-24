@@ -87,7 +87,7 @@ const Header: React.FC = (): React.ReactElement => {
         </div>
       </div>
       <div className="container mx-auto md:px-2">
-        <NavbarMenu show={show} />
+        <NavbarMenu show={show} setShow={setShow} />
       </div>
     </header>
   );

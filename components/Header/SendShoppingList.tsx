@@ -59,7 +59,7 @@ const SendShoppingList: React.FC = (): React.ReactElement => {
           />
           <label
             htmlFor="exampleSearch2"
-            className="pointer-events-none absolute top-0 right-3 mb-0 max-w-[90%] origin-[100%_0] truncate pt-[0.57rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
+            className="pointer-events-none text-blue-gray-700 absolute top-0 right-3 mb-0 max-w-[90%] origin-[100%_0] truncate pt-[0.57rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200 font-normal"
           >
             شماره موبایل
           </label>
@@ -93,48 +93,50 @@ const SendShoppingList: React.FC = (): React.ReactElement => {
         <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
           <AccordionHeader
             onClick={() => handleOpen(1)}
-            className="font-normal text-base"
+            className="font-normal text-base [&>*:last-child]:ml-0"
           >
             {"ارسال اطلاعات بیشتر (اختیاری)"}
           </AccordionHeader>
           <AccordionBody>
-            <div className="relative mt-3">
+            <div className="relative">
               <input
                 type="text"
-                className="peer block min-h-[auto] w-full rounded border-0 bg-gray-100 py-[.62rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                className="peer block h-12 w-full rounded border bg-gray-100 py-[.62rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                 id="exampleSearch2"
               />
               <label
                 htmlFor="exampleSearch2"
-                className="pointer-events-none absolute top-0 right-3 mb-0 max-w-[90%] origin-[100%_0] truncate pt-[0.57rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
+                className="pointer-events-none text-blue-gray-700 absolute top-0 right-3 mb-0 max-w-[90%] origin-[100%_0] truncate pt-[0.57rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:peer-focus:text-neutral-200 font-normal"
               >
                 نام و نام خانوادگی
               </label>
             </div>
 
-            <Select
-              label="نوع پروژه"
-              onChange={handleChange}
-              className="select"
-            >
-              {options.map((item) => (
-                <Option key={item.value} value={item.value}>
-                  {item.label}
-                </Option>
-              ))}
-            </Select>
+            <div className="mt-3">
+              <Select
+                label="نوع پروژه"
+                onChange={handleChange}
+                className="select bg-gray-100 border-gray-200"
+              >
+                {options.map((item) => (
+                  <Option key={item.value} value={item.value}>
+                    {item.label}
+                  </Option>
+                ))}
+              </Select>
+            </div>
 
             <div className="relative mt-3" data-te-input-wrapper-init>
               <textarea
-                className="peer block min-h-[auto] w-full rounded border-0 bg-gray-100 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                className="peer block w-full rounded border bg-gray-100 py-[.62rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                 id="exampleFormControlTextarea1"
-                rows={3}
+                rows={5}
                 placeholder="Your message"
                 defaultValue={""}
               />
               <label
                 htmlFor="exampleFormControlTextarea1"
-                className="pointer-events-none absolute top-0 right-3 mb-0 max-w-[90%] origin-[100%_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
+                className="pointer-events-none text-blue-gray-700 absolute top-0 right-3 mb-0 max-w-[90%] origin-[100%_0] truncate pt-[0.57rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:peer-focus:text-neutral-200 font-normal"
               >
                 توضیحات بیشتر
               </label>

@@ -33,8 +33,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
           <Dialog
             open={open}
             handler={() => setOpen(false)}
-            className="p-3 scrollbar max-h-screen"
-            size={"xxl"}
+            className="p-3 scrollbar"
           >
             <button
               onClick={() => setOpen(false)}
