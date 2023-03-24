@@ -34,6 +34,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
             open={open}
             handler={() => setOpen(false)}
             className="p-3 scrollbar"
+            size={"xxl"}
           >
             <button
               onClick={() => setOpen(false)}
