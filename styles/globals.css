@@ -2,15 +2,15 @@
 
 @layer base {
   h1 {
-    @apply text-2xl;
+    @apply text-3xl;
   }
 
   h2 {
-    @apply text-xl;
+    @apply text-2xl;
   }
 
   h3 {
-    @apply text-lg;
+    @apply text-xl;
   }
 
   small {
@@ -144,24 +144,24 @@ h6,
 
 [data-floating-ui-portal]>div {
   overflow: hidden !important;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .swiper-pagination-bullet {
-  width: 12px !important;
-  height: 12px !important;
+  width: 13px;
+  height: 13px;
   cursor: pointer;
   transition-property: width;
   transition-duration: .3s;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  margin: 0 !important;
+  margin: 0;
+  background-color: white;
+  display: block;
+  border-radius: 50%;
+  @apply border border-gray-300
 }
 
 .pagination-slider .swiper-pagination-bullet-active {
-  width: 36px !important;
+  width: 40px;
   border-radius: 10px;
-
+  @apply bg-primary border-primary
 }

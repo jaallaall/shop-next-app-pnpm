@@ -1,9 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/swiper-bundle.css";
-
-import { Navigation, Pagination } from "swiper";
 import { amount, product, uderscore } from "utils";
 import ProductCard from "./ProductCard";
 
@@ -23,67 +20,83 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
           </svg>
         </Link>
       </div>
-      <Swiper
-        // onSwiper={setSwiperRef}
-        slidesPerView={1.3}
-        centeredSlides={true}
-        spaceBetween={20}
-        breakpoints={{
-          640: {
-            slidesPerView: 1.5,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        }}
-        // modules={[Pagination, Navigation]}
-        className="mySwiper"
-        dir="rtl"
-      >
-        {product.map((item) => {
-          return (
-            <SwiperSlide key={item.id}>
-              <div className="min-h-[280px] border p-3 flex flex-col rounded-lg bg-white">
-                <Link
-                  className="mb-3 text-lg"
-                  href={
-                    "/" + uderscore(item.grouping) + "/" + uderscore(item.href)
-                  }
-                >
-                  {item.title}
-                </Link>
-                <div className="flex justify-between mt-auto">
-                  <span>بنکن</span>
-                  <span className="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.55em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-primary-700">
-                    تا
-                    {item.discount}% تخفیف
-                  </span>
+      <div className="md:grid md:grid-cols-[200px_minmax(0,1fr)] md:border md:p-3 md:rounded-lg md:border-gray-300">
+        <div className="hidden md:flex md:flex-col">
+          <h3>اتصالات فلزی</h3>
+          <span className="relative h-full w-full">
+            <Image
+              src="/static/images/Untitled-1_20220919141902.499-45262FA.png"
+              fill
+              alt="image"
+              style={{ objectFit: "scale-down" }}
+            />
+          </span>
+        </div>
+        <Swiper
+          dir="rtl"
+          slidesPerView={1.3}
+          centeredSlides={true}
+          spaceBetween={20}
+          breakpoints={{
+            640: {
+              slidesPerView: 1.5,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 3.3,
+              spaceBetween: 20,
+            },
+          }}
+          // modules={[Pagination, Navigation]}
+          className="mySwiper"
+          loop
+        >
+          {product.map((item) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <div className="min-h-[280px] border p-3 flex flex-col rounded-lg bg-white shadow-sm">
+                  <Link
+                    className="mb-3 text-lg"
+                    href={
+                      "/" +
+                      uderscore(item.grouping) +
+                      "/" +
+                      uderscore(item.href)
+                    }
+                  >
+                    {item.title}
+                  </Link>
+                  <div className="flex justify-between mt-auto">
+                    <span>بنکن</span>
+                    <span className="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.55em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-primary-700">
+                      تا
+                      {item.discount}% تخفیف
+                    </span>
+                  </div>
+                  <div className="flex justify-between mt-3">
+                    <span>سایز</span>
+                    <span>
+                      {item.size}
+                      عدد
+                    </span>
+                  </div>
+                  <div className="flex justify-between mt-3">
+                    <span>قیمت</span>
+                    <span>
+                      {amount(item.price)} <small>ریال</small>
+                    </span>
+                  </div>
+                  <ProductCard item={item} />
                 </div>
-                <div className="flex justify-between mt-3">
-                  <span>سایز</span>
-                  <span>
-                    {item.size}
-                    عدد
-                  </span>
-                </div>
-                <div className="flex justify-between mt-3">
-                  <span>قیمت</span>
-                  <span>
-                    {amount(item.price)} <small>ریال</small>
-                  </span>
-                </div>
-                <ProductCard item={item} />
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </>
   );
 };

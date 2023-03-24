@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
-
 import Image from "next/image";
 import { SetStateAction, useState } from "react";
 import { Pagination } from "swiper";
@@ -45,30 +43,31 @@ const SuccessReport: React.FC = (): React.ReactElement => {
         // onSwiper={setSwiperRef}
         slidesPerView={1}
         centeredSlides={true}
-        spaceBetween={20}
+        spaceBetween={5}
         breakpoints={{
           640: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 5,
           },
           768: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            spaceBetween: 5,
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
         }}
         pagination={{ el: paginationRef, clickable: true }}
         modules={[Pagination]}
         className="mySwiper"
         dir="rtl"
+        loop
       >
         {report.map((item) => {
           return (
-            <SwiperSlide key={item.id}>
-              <div className="min-h-[280px] border p-3 flex flex-col rounded-lg bg-white">
+            <SwiperSlide key={item.id} className="p-2">
+              <div className="min-h-[280px] border p-3 flex flex-col rounded-lg bg-white shadow-md">
                 <div className="relative h-48">
                   <Image src={item.img} alt={item.alt} fill />
                 </div>

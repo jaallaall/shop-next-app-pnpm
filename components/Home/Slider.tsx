@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-// import { SetStateAction, useState } from "react";
-// import { Pagination } from "swiper";
+import { SetStateAction, useState } from "react";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
+import "swiper/swiper.min.css";
+
 const Slider: React.FC = (): React.ReactElement => {
-  // const [paginationRef, setPaginationRef] = useState<HTMLElement | null>(null);
+  const [paginationRef, setPaginationRef] = useState<HTMLElement | null>(null);
   return (
     <>
       <Swiper
@@ -14,8 +17,8 @@ const Slider: React.FC = (): React.ReactElement => {
         spaceBetween={20}
         className="mySwiper"
         dir="rtl"
-        // pagination={{ el: paginationRef, clickable: true }}
-        // modules={[Pagination]}
+        pagination={{ el: paginationRef, clickable: true }}
+        modules={[Pagination]}
       >
         <SwiperSlide>
           <Link href="/" className="md:h-[calc(100vh_-_100px)] h-[50vh] block ">
@@ -40,12 +43,12 @@ const Slider: React.FC = (): React.ReactElement => {
           </Link>
         </SwiperSlide>
       </Swiper>
-      {/* <div
+      <div
         ref={(node: SetStateAction<HTMLElement | null>) =>
           setPaginationRef(node)
         }
-        className="flex justify-center py-3 gap-x-1 pagination-slider"
-      /> */}
+        className="flex justify-center mt-6 gap-x-1 pagination-slider"
+      />
     </>
   );
 };

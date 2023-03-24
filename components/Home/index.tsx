@@ -1,5 +1,6 @@
 "use client";
 
+import Agencies from "./Agencies";
 import Clients from "./Clients";
 import ProductsCarousel from "./ProductsCarousel";
 import ProductsCategorization from "./ProductsCategorization";
@@ -32,10 +33,14 @@ const Home: React.FC = (): React.ReactElement => {
       </section>
       <section>
         <div className="container mx-auto px-2">
+          <Agencies />
+        </div>
+      </section>
+      <section>
+        <div className="container mx-auto px-2">
           <SuccessReport />
         </div>
       </section>
-
       <section>
         <div className="container mx-auto px-2">
           <PurchaseProcess />

@@ -17,6 +17,24 @@ export const product = [
     grouping: "لوله فلزی",
     href: "لوله مانیسمان",
   },
+  {
+    id: 3,
+    title: "زانو 90 درجه جوشی بدون درز شعاع بلند رده 40 بنکن (BENKAN)",
+    discount: 20,
+    size: 3,
+    price: 400000,
+    grouping: "لوله فلزی",
+    href: "لوله مانیسمان (فولادی بدون درز)",
+  },
+  {
+    id: 4,
+    title: "لوله مانیسمان",
+    discount: 30,
+    size: 2,
+    price: 800000,
+    grouping: "لوله فلزی",
+    href: "لوله مانیسمان",
+  },
 ];
 
 export const products = [
