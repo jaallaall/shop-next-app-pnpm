@@ -69,10 +69,10 @@ const Clients: React.FC = (): React.ReactElement => {
       <div className="flex justify-between mb-6">
         <h3>مشتریان</h3>
       </div>
-      <div className="grid md:grid-cols-[70px_minmax(0,_1fr)_70px] grid-cols-[30px_minmax(0,_1fr)_30px] gap-2 md:gap-5 items-center">
+      <div className="grid md:grid-cols-[70px_minmax(0,_1fr)_70px] md:gap-5 items-center">
         <button
           ref={nextRef}
-          className="w-8 h-8 p-2 bg-white rounded-md hover:bg-primary-light"
+          className="w-8 h-8 p-2 bg-white rounded-md hover:bg-primary-light hidden md:block"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ const Clients: React.FC = (): React.ReactElement => {
         </Swiper>
         <button
           ref={prevRef}
-          className="w-8 h-8 p-2 bg-white rounded-md ml-0 mr-auto hover:bg-primary-light"
+          className="w-8 h-8 p-2 bg-white rounded-md ml-0 mr-auto hover:bg-primary-light hidden md:block"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

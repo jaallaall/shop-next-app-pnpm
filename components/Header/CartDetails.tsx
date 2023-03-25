@@ -1,10 +1,4 @@
-import {
-  Button,
-  Dialog,
-  Menu,
-  MenuHandler,
-  MenuList,
-} from "@material-tailwind/react";
+import { Button, Menu, MenuHandler, MenuList } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import {
@@ -13,6 +7,7 @@ import {
   valueQuantity,
 } from "redux/cart.slice";
 import { useAppDispatch, useAppSelector } from "redux/hooks";
+import { Portal } from "ui";
 import { useMediaQuery } from "usehooks-ts";
 import { amount } from "utils";
 
@@ -162,10 +157,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
         );
       })}
       <div className="sticky bottom-0 mt-auto bg-white md:p-3">
-        <Button
-          className="w-full"
-          onClick={() => router.push("/invoicedetail")}
-        >
+        <Button className="w-full" onClick={() => router.push("/user-panel")}>
           مشاهده پیش فاکتور
         </Button>
       </div>
@@ -200,7 +192,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
           {btn}
         </div>
 
-        <Dialog open={open} handler={() => setOpen(false)} size={"xxl"}>
+        <Portal open={open} onClose={setOpen}>
           <div className="flex p-3">
             <button onClick={() => setOpen(false)} className="btnIcon !ml-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -210,7 +202,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
             <h5>خلاصه پیش‌ فاکتور</h5>
           </div>
           <div className="scrollbar h-screen p-3 flex flex-col">{basket}</div>
-        </Dialog>
+        </Portal>
       </>
     );
   }

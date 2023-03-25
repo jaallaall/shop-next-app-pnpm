@@ -21,7 +21,7 @@ const Slider: React.FC = (): React.ReactElement => {
         modules={[Pagination]}
       >
         <SwiperSlide>
-          <Link href="/" className="md:h-[calc(100vh_-_100px)] h-[50vh] block ">
+          <Link href="/" className="md:h-[calc(100vh_-_100px)] h-[30vh] block ">
             <Image
               src="/static/images/5-2D2816FE (1).png"
               alt="image"
@@ -32,7 +32,7 @@ const Slider: React.FC = (): React.ReactElement => {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="/" className="md:h-[calc(100vh_-_100px)] h-[50vh] block ">
+          <Link href="/" className="md:h-[calc(100vh_-_100px)] h-[30vh] block ">
             <Image
               src="/static/images/5-2D2816FE (1).png"
               alt="image"
@@ -47,7 +47,7 @@ const Slider: React.FC = (): React.ReactElement => {
         ref={(node: SetStateAction<HTMLElement | null>) =>
           setPaginationRef(node)
         }
-        className="flex justify-center mt-6 gap-x-1 pagination-slider"
+        className="flex justify-center md:mt-6 mt-3 gap-x-1 pagination-slider"
       />
     </>
   );

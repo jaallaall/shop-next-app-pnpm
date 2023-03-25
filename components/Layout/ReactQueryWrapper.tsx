@@ -8,6 +8,9 @@ import {
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "redux/store";
 
 function ReactQueryWrapper({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -17,7 +20,9 @@ function ReactQueryWrapper({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={dehydratedState}>
-        {children}
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>{children}</PersistGate>
+        </Provider>
         <ReactQueryDevtools />
       </Hydrate>
     </QueryClientProvider>

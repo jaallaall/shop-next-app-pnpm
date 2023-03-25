@@ -1,10 +1,10 @@
-import { Dialog } from "@material-tailwind/react";
 import { useOnClickOutside } from "hooks";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { MenuLg, MegaMenu } from "./MegaMenu";
-import SendShoppingList from "./SendShoppingList";
+import { Portal } from "ui";
 import { useMediaQuery } from "usehooks-ts";
+import { MegaMenu, MenuLg } from "./MegaMenu";
+import SendShoppingList from "./SendShoppingList";
 
 const NavbarMenu: React.FC<{
   show: boolean;
@@ -36,28 +36,23 @@ const NavbarMenu: React.FC<{
           } `}
         >
           <ul className="ml-auto flex flex-col lg:flex-row">
-            <li onClick={() => setShow(false)} className="md:hidden">
-              <Link
-                className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 p-2"
-                href={"/"}
-              >
-                {"صفحه نخست"}
-              </Link>
-            </li>
-            <li ref={ref} onClick={() => setShow(false)}>
-              <div
-                onClick={handleClick}
-                className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 cursor-pointer p-2"
-              >
-                دسته بندی
-              </div>
-              {showMenu && (
-                <div className="md:absolute left-0 right-0 bg-white rounded-br-lg rounded-bl-lg overflow-hidden md:h-[calc(100vh_-_150px)]">
-                  <MegaMenu />
+            {!matches ? (
+              <li ref={ref}>
+                <div
+                  onClick={handleClick}
+                  className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 cursor-pointer p-2"
+                >
+                  دسته بندی
                 </div>
-              )}
-            </li>
-
+                {showMenu && (
+                  <div className="md:absolute left-0 right-0 bg-white rounded-br-lg rounded-bl-lg overflow-hidden md:h-[calc(100vh_-_150px)]">
+                    <MegaMenu setShow={setShow} />
+                  </div>
+                )}
+              </li>
+            ) : (
+              <MenuLg />
+            )}
             <li onClick={() => setShow(false)}>
               <Link
                 className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 p-2"
@@ -82,15 +77,14 @@ const NavbarMenu: React.FC<{
           </ul>
         </div>
       </div>
-      {matches && <MenuLg />}
       {matches && (
-        <Dialog
+        <Portal
           open={open}
-          handler={() => setOpen(false)}
-          className="md:my-5 mt-0 flex flex-col h-[calc(100vh_-_50px)] lg:max-w-[30%] lg:min-w-0 min-w-full"
+          onClose={setOpen}
+          className="md:my-5 mt-0 h-[calc(100vh_-_50px)] lg:max-w-[30%] lg:min-w-0 min-w-full"
         >
           <SendShoppingList />
-        </Dialog>
+        </Portal>
       )}
     </>
   );

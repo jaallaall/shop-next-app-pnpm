@@ -58,14 +58,16 @@ module.exports = withMT({
           overflowY: "unset",
         },
         ".scrollbar::-webkit-scrollbar": {
-          height: "4px",
-          width: "5px",
+          height: 4,
+          width: 5,
         },
         ".scrollbar::-webkit-scrollbar-thumb": {
           backgroundColor: "#dbdbdb",
+          borderRadius: 3,
         },
         ".scrollbar::-webkit-scrollbar-track-piece": {
           backgroundColor: "#F1F2F4",
+          borderRadius: 3,
         },
       });
     }),

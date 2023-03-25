@@ -1,8 +1,8 @@
-import { Dialog } from "@material-tailwind/react";
 import CartDetails from "components/Header/CartDetails";
 import Search from "components/Header/Search";
 import SendShoppingList from "components/Header/SendShoppingList";
 import { useState } from "react";
+import { Portal } from "ui";
 
 const FooterXs: React.FC = (): React.ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
@@ -30,11 +30,11 @@ const FooterXs: React.FC = (): React.ReactElement => {
             جستجو
           </div>
 
-          <Dialog
+          <Portal
             open={open}
-            handler={() => setOpen(false)}
+            onClose={setOpen}
             className="p-3 scrollbar"
-            size={"xxl"}
+            rol="modal"
           >
             <button
               onClick={() => setOpen(false)}
@@ -45,7 +45,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
               </svg>
             </button>
             <Search />
-          </Dialog>
+          </Portal>
         </div>
         <div className="py-2">
           <div className="text-center text-xs" onClick={() => setOpen1(true)}>
@@ -60,12 +60,13 @@ const FooterXs: React.FC = (): React.ReactElement => {
             ارسال لیست خرید
           </div>
 
-          <Dialog
+          {/* <Dialog
             open={open1}
             handler={() => setOpen1(false)}
             className="scrollbar max-h-screen"
             size={"xxl"}
-          >
+          ></Dialog> */}
+          <Portal open={open1} onClose={setOpen1}>
             <div className="flex p-3">
               <button
                 onClick={() => setOpen1(false)}
@@ -78,7 +79,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
               <h3>ارسال لیست خرید</h3>
             </div>
             <SendShoppingList />
-          </Dialog>
+          </Portal>
         </div>
       </div>
     </footer>

@@ -8,44 +8,61 @@ import { usePathname } from "next/navigation";
 // import NextNProgress from "nextjs-progressbar";
 import { Suspense } from "react";
 import { BallTriangle } from "react-loader-spinner";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor, store } from "redux/store";
 import { useMediaQuery } from "usehooks-ts";
+import PanelLayout from "./PanelLayout";
 
 function AppProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const matches = useMediaQuery("(min-width: 768px)");
 
+  if (pathname?.startsWith("/login")) {
+    return (
+      <Suspense
+        fallback={
+          <BallTriangle
+            height={50}
+            width={50}
+            radius={5}
+            color="#285192"
+            ariaLabel="ball-triangle-loading"
+            visible={true}
+          />
+        }
+      >
+        {children}
+      </Suspense>
+    );
+  }
+  if (pathname?.startsWith("/user-panel")) {
+    return (
+      <>
+        <Header />
+        <PanelLayout>{children}</PanelLayout>
+        <Footer />
+        {!matches && <FooterXs />}
+      </>
+    );
+  }
+
   return (
     <>
-      {/* <NextNProgress /> */}
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          {pathname !== "/login" && <Header />}
-
-          <Suspense
-            fallback={
-              <BallTriangle
-                height={100}
-                width={100}
-                radius={5}
-                color="#4fa94d"
-                ariaLabel="ball-triangle-loading"
-                visible={true}
-              />
-            }
-          >
-            {children}
-          </Suspense>
-          {pathname !== "/login" && (
-            <>
-              <Footer />
-              {!matches && <FooterXs />}
-            </>
-          )}
-        </PersistGate>
-      </Provider>
+      <Header />
+      <Suspense
+        fallback={
+          <BallTriangle
+            height={100}
+            width={100}
+            radius={5}
+            color="#4fa94d"
+            ariaLabel="ball-triangle-loading"
+            visible={true}
+          />
+        }
+      >
+        {children}
+      </Suspense>
+      <Footer />
+      {!matches && <FooterXs />}
     </>
   );
 }

@@ -22,11 +22,13 @@ export const MenuLg: React.FC = (): React.ReactElement => {
   };
   return (
     <Menu placement="top-start" lockScroll>
-      <MenuHandler>
-        <div className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 cursor-pointer p-2">
-          دسته بندی
-        </div>
-      </MenuHandler>
+      <li>
+        <MenuHandler>
+          <div className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 cursor-pointer p-2">
+            دسته بندی
+          </div>
+        </MenuHandler>
+      </li>
       <MenuList className="bg-white rounded-br-lg rounded-bl-lg overflow-hidden md:h-[calc(100vh_-_150px)]">
         <div className="md:grid md:grid-cols-[200px_minmax(0,1fr)_250px] h-full">
           <div className="scrollbar border-l bg-gray-200">
@@ -101,7 +103,9 @@ export const MenuLg: React.FC = (): React.ReactElement => {
   );
 };
 
-export const MegaMenu: React.FC = (): React.ReactElement => {
+export const MegaMenu: React.FC<{
+  setShow: (e: boolean) => void;
+}> = ({ setShow }): React.ReactElement => {
   const [open, setOpen] = useState(0);
   const [open1, setOpen1] = useState(0);
 
@@ -148,7 +152,12 @@ export const MegaMenu: React.FC = (): React.ReactElement => {
                   <AccordionBody key={indx}>
                     {subItem.sub.map((it, i) => {
                       return (
-                        <Link href={it.href} key={i} className="pt-2 block ">
+                        <Link
+                          href={it.href}
+                          key={i}
+                          className="pt-2 block"
+                          onClick={() => setShow(false)}
+                        >
                           {it.name}
                         </Link>
                       );

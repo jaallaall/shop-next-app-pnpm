@@ -40,6 +40,7 @@ export default async function RootLayout({
           <AppProvider>{children}</AppProvider>
           {/* </AuthContext> */}
         </ReactQueryWrapper>
+        {/* <div id="sidebar"></div> */}
       </body>
     </html>
   );
