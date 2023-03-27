@@ -1,6 +1,8 @@
 import { useLayoutEffect, useCallback, useState } from "react";
 
 type RectResult = {
+  x: number;
+  y: number;
   bottom: number;
   height: number;
   left: number;
@@ -11,6 +13,8 @@ type RectResult = {
 
 function getRect<T extends HTMLElement>(element?: T): RectResult {
   let rect: RectResult = {
+    x: 0,
+    y: 0,
     bottom: 0,
     height: 0,
     left: 0,
@@ -54,7 +58,7 @@ export function useRect<T extends HTMLElement>(
       window.addEventListener("resize", handleResize); // Browser support, remove freely
       return () => window.removeEventListener("resize", handleResize);
     }
-  }, [ref.current]);
+  }, [handleResize, ref]);
 
   return rect;
 }

@@ -84,7 +84,7 @@ const Clients: React.FC = (): React.ReactElement => {
           </svg>
         </button>
         <Swiper
-          slidesPerView={1.8}
+          slidesPerView={2.4}
           centeredSlides={true}
           spaceBetween={20}
           navigation={{
