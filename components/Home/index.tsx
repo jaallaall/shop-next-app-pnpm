@@ -16,6 +16,7 @@ const Home: React.FC = (): React.ReactElement => {
           <Slider />
         </div>
       </section>
+
       <section>
         <div className="container mx-auto px-2">
           <ProductsCategorization />

@@ -14,7 +14,7 @@ const Search: React.FC = (): React.ReactElement => {
     <div className="relative">
       <input
         type="search"
-        className="peer block min-h-[auto] w-full rounded border-0 bg-gray-100 py-[.62rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+        className="peer block min-h-[auto] w-full rounded-lg border-0 bg-blue-gray-50 py-[.62rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
         onFocus={handleFocus}
         onBlur={handleBlur}
       />

@@ -7,6 +7,7 @@ export interface IPortal {
   open: boolean;
   onClose: (e: boolean) => void;
   className?: string;
+  classes?: string;
   rol?: string;
 }
 
@@ -22,6 +23,7 @@ const Portal = (props: PropsWithChildren<IPortal>) => {
     onClose,
     rol = "modal",
     className = "",
+    classes = "",
     children,
   } = props;
 
@@ -82,7 +84,10 @@ const Portal = (props: PropsWithChildren<IPortal>) => {
                   },
                 }}
                 role={rol}
-                className={`${className} fixed z-[1000] bg-white flex flex-col top-0 bottom-0 left-0 right-0 md:rounded-lg m-auto`}
+                className={`${
+                  className ||
+                  " fixed top-0 bottom-0 left-0 right-0 md:rounded-lg m-auto"
+                } z-[1000] bg-white flex flex-col`}
               >
                 {children}
               </motion.aside>

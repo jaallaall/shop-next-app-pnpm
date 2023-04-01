@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { amount, product, uderscore } from "utils";
-import ProductCard from "./ProductCard";
+import BtnCart from "./BtnCart";
 
 const ProductsCarousel: React.FC = (): React.ReactElement => {
   return (
@@ -90,7 +90,7 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
                       {amount(item.price)} <small>ریال</small>
                     </span>
                   </div>
-                  <ProductCard item={item} />
+                  <BtnCart item={item} />
                 </div>
               </SwiperSlide>
             );

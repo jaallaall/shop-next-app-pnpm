@@ -1,15 +1,30 @@
-import { Options } from "interfaces";
 import Link from "next/link";
 import { Fragment } from "react";
 
 interface Props {
-  breadcrumbs: Options[];
+  pathname: string;
 }
 
-const Breadcrumbs: React.FC<Props> = ({ breadcrumbs }): React.ReactElement => {
+interface BreadProps {
+  id: number;
+  title: string;
+  href: string;
+}
+
+const Breadcrumbs: React.FC<Props> = ({ pathname }): React.ReactElement => {
+  const breadcrumbs = decodeURIComponent(pathname)
+    ?.split("/")
+    .map((item, i) => {
+      return {
+        title: item === "" ? "صفحه نخست" : item.replace(/_/g, " "),
+        id: i + 1,
+        href: item === "" ? "/" : item,
+      };
+    }) as BreadProps[];
+
   return (
-    <nav className="bg-grey-light w-full rounded-md mb-4">
-      <ol className="list-reset flex">
+    <nav className="bg-grey-light w-full rounded-md md:mb-4">
+      <ol className="list-reset flex whitespace-nowrap overflow-y-auto md:pb-0 pb-4">
         {breadcrumbs?.map((item, i) => {
           if (i === breadcrumbs.length - 1) {
             return (

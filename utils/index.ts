@@ -6,6 +6,12 @@ export * from "./validationSchema";
 
 export const uderscore = (val: string) => val.replace(/\s+/g, "_");
 
+export const randomId = (length = 6) => {
+  return Math.random()
+    .toString(36)
+    .substring(2, length + 2);
+};
+
 function camelToSnake(str: string) {
   let newKey = "";
   let index = 0;

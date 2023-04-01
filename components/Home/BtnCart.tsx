@@ -16,9 +16,10 @@ interface Props {
   quantity?: number;
 }
 
-const ProductCard: React.FC<{
+const BtnCart: React.FC<{
   item: Props;
-}> = ({ item }): React.ReactElement => {
+  classes?: string | boolean;
+}> = ({ item, classes }): React.ReactElement => {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cartItems);
 
@@ -38,7 +39,8 @@ const ProductCard: React.FC<{
     return (
       <button
         type="button"
-        className="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-primary-dark w-full mt-3"
+        className={`inline-block rounded bg-primary pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-primary-dark
+         w-full ${classes || "px-6 mt-3"}`}
         onClick={() => dispatch(addToCart(item))}
       >
         <svg
@@ -54,7 +56,9 @@ const ProductCard: React.FC<{
   }
 
   return (
-    <div className="grid grid-cols-[50px_1fr_50px] mt-3 gap-2">
+    <div
+      className={`grid ${classes || "grid-cols-[50px_1fr_50px] mt-3"} gap-2`}
+    >
       <button
         type="button"
         className="flex justify-center items-center rounded bg-primary uppercase leading-normal text-white hover:bg-primary-dark"
@@ -70,7 +74,9 @@ const ProductCard: React.FC<{
       </button>
       <input
         type="number"
-        className="peer block min-h-[auto] w-full rounded border bg-gray-100 py-[.42rem] px-3 leading-[1.6] outline-none"
+        className={`peer block min-h-[auto] w-full rounded border py-[.42rem] px-3 leading-[1.6] outline-none ${
+          classes ? "bg-white" : "bg-gray-100"
+        } `}
         onChange={handleChange}
         value={quantity}
         min={0}
@@ -102,4 +108,4 @@ const ProductCard: React.FC<{
   );
 };
 
-export default ProductCard;
+export default BtnCart;

@@ -21,7 +21,7 @@ interface Props {
 }
 
 const CartDetails: React.FC = (): React.ReactElement => {
-  const router = useRouter();
+  const { push } = useRouter();
   const [open, setOpen] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const matches = useMediaQuery("(min-width: 768px)");
@@ -60,6 +60,11 @@ const CartDetails: React.FC = (): React.ReactElement => {
     },
     [dispatch]
   );
+
+  const handleClickRoute = () => {
+    push("/user-panel");
+    setOpen(false);
+  };
 
   const basket = (
     <>
@@ -157,7 +162,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
         );
       })}
       <div className="sticky bottom-0 mt-auto bg-white md:p-3">
-        <Button className="w-full" onClick={() => router.push("/user-panel")}>
+        <Button className="w-full" onClick={handleClickRoute}>
           مشاهده پیش فاکتور
         </Button>
       </div>

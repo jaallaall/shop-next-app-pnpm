@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { prods } from "utils";
+import { prods, uderscore } from "utils";
 
 const ProductsCategorization: React.FC = (): React.ReactElement => {
   return (
@@ -13,7 +13,7 @@ const ProductsCategorization: React.FC = (): React.ReactElement => {
               key={item.id}
               className="relative group md:[&:not(:first-child)]:before:border-r md:[&:not(:first-child)]:before:border-gray-300 md:[&:not(:first-child)]:before:h-20 md:[&:not(:first-child)]:before:block md:[&:not(:first-child)]:before:absolute md:[&:not(:first-child)]:before:top-1/2 md:[&:not(:first-child)]:before:-translate-y-1/2 md:min-h-[150px] bg-white md:bg-transparent md:shadow-none shadow-md rounded-lg md:transform md:transition-transform md:duration-75 md:hover:scale-110 md:hover:bg-info-light md:p-3 p-1 md:group-hover:absolute md:right-0 md:left-0 md:top-0 z-10 hover:[&:not(:first-child)]:before:border-0 text-primary"
             >
-              <Link href={item.href} className="text-center">
+              <Link href={"/" + uderscore(item.title)} className="text-center">
                 <span className="w-10 h-10 relative block mx-auto">
                   <Image
                     src={item.img}
