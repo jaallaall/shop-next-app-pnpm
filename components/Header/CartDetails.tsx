@@ -1,13 +1,13 @@
 import { Button, Menu, MenuHandler, MenuList } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 import {
   handleChangeChecked,
   removeFromCart,
   valueQuantity,
 } from "redux/cart.slice";
 import { useAppDispatch, useAppSelector } from "redux/hooks";
-import { Portal } from "ui";
+import { DialogQuestion, Modal } from "ui";
 import { useMediaQuery } from "usehooks-ts";
 import { amount } from "utils";
 
@@ -23,6 +23,7 @@ interface Props {
 const CartDetails: React.FC = (): React.ReactElement => {
   const { push } = useRouter();
   const [open, setOpen] = useState<boolean>(false);
+  const [openDialog, setOpenDialog] = useState<number[]>([]);
   const dispatch = useAppDispatch();
   const matches = useMediaQuery("(min-width: 768px)");
   const cart = useAppSelector((state) => state.cartItems);
@@ -64,6 +65,17 @@ const CartDetails: React.FC = (): React.ReactElement => {
   const handleClickRoute = () => {
     push("/user-panel");
     setOpen(false);
+  };
+
+  const handleClickRemoveItem = (item: Props) => {
+    const arrId = [];
+    arrId.push(item.id);
+    setOpenDialog(arrId);
+  };
+
+  const handleRemoveItem = (item: Props) => {
+    setOpenDialog([]);
+    handleClickRemove(item);
   };
 
   const basket = (
@@ -125,40 +137,47 @@ const CartDetails: React.FC = (): React.ReactElement => {
       </div>
       {cart?.map((item) => {
         return (
-          <div key={item.id} className="py-3 border-t">
-            <div className="flex justify-between">
-              <h5>{item.title}</h5>
-              <button
-                className="inline-block flex-[0_0_20px] h-6 rounded-sm p-0.5 border mr-2 fill-danger"
-                onClick={() => handleClickRemove(item)}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                </svg>
-              </button>
+          <Fragment key={item.id}>
+            <div className="py-3 border-t">
+              <div className="flex justify-between">
+                <h5>{item.title}</h5>
+                <button
+                  className="inline-block flex-[0_0_20px] h-6 rounded-sm p-0.5 border mr-2 fill-danger"
+                  onClick={() => handleClickRemoveItem(item)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                  </svg>
+                </button>
+              </div>
+              <div className="flex justify-between mt-2 items-center">
+                <span>سایز : {item.size}</span>
+                <span>
+                  قیمت واحد : {amount(item.price)} <small>ریال</small>
+                </span>
+              </div>
+              <div className="flex justify-between mt-3 items-center">
+                <span className="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.55em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-primary-700">
+                  درصد تخفیف : {item.discount}%
+                </span>
+                <span className="flex items-center">
+                  تعداد :
+                  <input
+                    type="number"
+                    className="peer block min-h-[auto] rounded border bg-gray-100 py-[.22rem] px-2 leading-[1.6] outline-none max-w-[100px] mr-2"
+                    onChange={(e) => handleChange(e, item)}
+                    value={item.quantity}
+                    min={0}
+                  />
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between mt-2 items-center">
-              <span>سایز : {item.size}</span>
-              <span>
-                قیمت واحد : {amount(item.price)} <small>ریال</small>
-              </span>
-            </div>
-            <div className="flex justify-between mt-3 items-center">
-              <span className="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.55em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-primary-700">
-                درصد تخفیف : {item.discount}%
-              </span>
-              <span className="flex items-center">
-                تعداد :
-                <input
-                  type="number"
-                  className="peer block min-h-[auto] rounded border bg-gray-100 py-[.22rem] px-2 leading-[1.6] outline-none max-w-[100px] mr-2"
-                  onChange={(e) => handleChange(e, item)}
-                  value={item.quantity}
-                  min={0}
-                />
-              </span>
-            </div>
-          </div>
+            <DialogQuestion
+              open={openDialog?.includes(item.id) ?? false}
+              handleRemoveItem={handleRemoveItem}
+              handleClickOpen={() => setOpenDialog([])}
+            />
+          </Fragment>
         );
       })}
       <div className="sticky bottom-0 mt-auto bg-white md:p-3">
@@ -197,7 +216,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
           {btn}
         </div>
 
-        <Portal open={open} onClose={setOpen}>
+        <Modal open={open} onClose={setOpen}>
           <div className="flex p-3">
             <button onClick={() => setOpen(false)} className="btnIcon !ml-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -207,7 +226,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
             <h5>خلاصه پیش‌ فاکتور</h5>
           </div>
           <div className="scrollbar h-screen p-3 flex flex-col">{basket}</div>
-        </Portal>
+        </Modal>
       </>
     );
   }

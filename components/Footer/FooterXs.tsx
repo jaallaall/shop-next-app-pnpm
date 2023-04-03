@@ -2,7 +2,7 @@ import CartDetails from "components/Header/CartDetails";
 import Search from "components/Header/Search";
 import SendShoppingList from "components/Header/SendShoppingList";
 import { useState } from "react";
-import { Portal } from "ui";
+import { Modal } from "ui";
 
 const FooterXs: React.FC = (): React.ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
@@ -30,12 +30,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
             جستجو
           </div>
 
-          <Portal
-            open={open}
-            onClose={setOpen}
-            className="p-3 scrollbar"
-            rol="modal"
-          >
+          <Modal open={open} onClose={setOpen} className="p-3 scrollbar">
             <button
               onClick={() => setOpen(false)}
               className="btnIcon !ml-3 mb-4"
@@ -45,7 +40,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
               </svg>
             </button>
             <Search />
-          </Portal>
+          </Modal>
         </div>
         <div className="py-2">
           <div className="text-center text-xs" onClick={() => setOpen1(true)}>
@@ -66,7 +61,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
             className="scrollbar max-h-screen"
             size={"xxl"}
           ></Dialog> */}
-          <Portal open={open1} onClose={setOpen1}>
+          <Modal open={open1} onClose={setOpen1}>
             <div className="flex p-3">
               <button
                 onClick={() => setOpen1(false)}
@@ -79,7 +74,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
               <h3>ارسال لیست خرید</h3>
             </div>
             <SendShoppingList />
-          </Portal>
+          </Modal>
         </div>
       </div>
     </footer>

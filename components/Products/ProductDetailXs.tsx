@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAppSelector } from "redux/hooks";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Portal } from "ui";
+import { Modal } from "ui";
 import { amount } from "utils";
 
 // Import Swiper styles
@@ -108,7 +108,7 @@ const ProductDetailXs: React.FC<{ item: PropsData; title: TitleType }> = ({
             >
               جزییات بیشتر
             </button>
-            <Portal
+            <Modal
               open={open.includes(slide.id)}
               onClose={handleClickClose}
               className="fixed bottom-0 left-0 right-0 rounded-t-lg min-h-[200px] p-3"
@@ -121,7 +121,7 @@ const ProductDetailXs: React.FC<{ item: PropsData; title: TitleType }> = ({
                   </div>
                 );
               })}
-            </Portal>
+            </Modal>
           </SwiperSlide>
         );
       })}

@@ -34,12 +34,7 @@ const PanelLayout: React.FC<{ children: React.ReactNode }> = ({
             </div>
           </aside>
         ) : (
-          <Portal
-            selector="sidebar"
-            rol="sidebar"
-            open={open}
-            onClose={setOpen}
-          >
+          <Portal open={open} onClose={setOpen}>
             <button
               className="w-10 h-10 p-2 ml-0 mr-auto"
               onClick={() => setOpen(false)}

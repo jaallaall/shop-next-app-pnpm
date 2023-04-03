@@ -7,8 +7,6 @@ export interface IPortal {
   open: boolean;
   onClose: (e: boolean) => void;
   className?: string;
-  classes?: string;
-  rol?: string;
 }
 
 const Portal = (props: PropsWithChildren<IPortal>) => {
@@ -18,12 +16,10 @@ const Portal = (props: PropsWithChildren<IPortal>) => {
   };
 
   const {
-    selector = "modal",
+    selector = "sidebar",
     open,
     onClose,
-    rol = "modal",
     className = "",
-    classes = "",
     children,
   } = props;
 
@@ -69,25 +65,22 @@ const Portal = (props: PropsWithChildren<IPortal>) => {
               <motion.aside
                 initial={{
                   opacity: 0,
-                  ...(rol === "modal" ? { y: -100 } : { x: 100 }),
+                  x: 100,
                 }}
                 animate={{
                   opacity: 1,
-                  ...(rol === "modal" ? { y: 0 } : { x: 0 }),
+                  x: 0,
                 }}
                 exit={{
                   opacity: 0,
-                  ...(rol === "modal" ? { y: -100 } : { x: 100 }),
+                  x: 100,
                   transition: {
                     duration: 0.2,
                     ease: "easeInOut",
                   },
                 }}
-                role={rol}
-                className={`${
-                  className ||
-                  " fixed top-0 bottom-0 left-0 right-0 md:rounded-lg m-auto"
-                } z-[1000] bg-white flex flex-col`}
+                role={"sidebar"}
+                className={`${className} z-[1000] bg-white flex flex-col`}
               >
                 {children}
               </motion.aside>

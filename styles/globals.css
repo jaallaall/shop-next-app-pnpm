@@ -139,6 +139,7 @@ h6,
 
 [data-floating-ui-scroll-lock] {
   padding-right: 0 !important;
+  overflow: hidden;
 }
 
 [data-floating-ui-portal]>div {

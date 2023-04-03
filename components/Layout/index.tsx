@@ -26,6 +26,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
             color="#285192"
             ariaLabel="ball-triangle-loading"
             visible={true}
+            wrapperClass="m-auto h-screen justify-center items-center"
           />
         }
       >
@@ -56,6 +57,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
             color="#4fa94d"
             ariaLabel="ball-triangle-loading"
             visible={true}
+            wrapperClass="m-auto h-screen justify-center items-center"
           />
         }
       >

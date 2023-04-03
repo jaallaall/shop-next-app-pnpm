@@ -93,10 +93,10 @@ const Footer: React.FC = (): React.ReactElement => {
             </a>
           </div>
         </div>
-        <div className="mx-6 md:py-10 py-4 text-center md:text-right">
+        <div className="md:py-10 py-4 text-center md:text-right">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <h6 className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
+              <h6 className="mb-4 flex items-center font-semibold uppercase">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

@@ -1,7 +1,7 @@
 import { useOnClickOutside } from "hooks";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { Portal } from "ui";
+import { Modal } from "ui";
 import { useMediaQuery } from "usehooks-ts";
 import { MegaMenu, MenuLg } from "./MegaMenu";
 import SendShoppingList from "./SendShoppingList";
@@ -31,7 +31,7 @@ const NavbarMenu: React.FC<{
     <>
       <div className="md:flex w-full flex-wrap items-center justify-between relative">
         <div
-          className={`grow basis-[100%] items-center lg:!flex lg:basis-auto scrollbar h-screen md:h-auto  ${
+          className={`grow basis-[100%] items-center lg:!flex lg:basis-auto scrollbar ${
             show ? "" : "hidden"
           } `}
         >
@@ -78,13 +78,13 @@ const NavbarMenu: React.FC<{
         </div>
       </div>
       {matches && (
-        <Portal
+        <Modal
           open={open}
           onClose={setOpen}
           className="md:my-5 mt-0 h-[calc(100vh_-_50px)] lg:max-w-[30%] lg:min-w-0 min-w-full"
         >
           <SendShoppingList />
-        </Portal>
+        </Modal>
       )}
     </>
   );
