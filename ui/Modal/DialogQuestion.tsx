@@ -1,24 +1,21 @@
 import Modal from ".";
 import style from "./DialogQuestion.module.css";
 
-const Loader: React.FC<{ color?: string; className: string }> = ({
-  color,
-  className,
-}) => {
+const Loader: React.FC<{ className: string }> = ({ className }) => {
   return (
-    <div className={`${style.loader} ${className} mr-3`}>
-      <svg className={style["circular-loader"]} viewBox="25 25 50 50">
-        <circle
-          className={style["loader-path"]}
-          cx={50}
-          cy={50}
-          r={20}
-          fill="none"
-          stroke={color}
-          strokeWidth={2}
-        />
-      </svg>
-    </div>
+    <svg
+      className={`${className} ${style["circular-loader"]} w-5 h-5 inline-block ml-4`}
+      viewBox="25 25 50 50"
+    >
+      <circle
+        className={style["loader-path"]}
+        cx={50}
+        cy={50}
+        r={20}
+        fill="none"
+        strokeWidth={2}
+      />
+    </svg>
   );
 };
 
@@ -37,15 +34,25 @@ const DialogQuestion: React.FC<{
     <Modal
       onClose={handleClickOpen}
       open={open}
-      className="max-w-[350px] max-h-28 px-7 py-4"
+      className="max-w-[350px] max-h-28 px-7 py-4 rounded-lg"
       //   ques
     >
       <h4 className="text-center">{"آیا از حذف مطمئن هستید؟"}</h4>
       <div className="flex justify-between items-center mt-4">
-        <button onClick={handleClickOpen}>{"خیر"}</button>
-        <button type="submit" onClick={handleRemoveItem}>
-          {"بله"}
+        <button
+          className="bg-blue-gray-50 inline-block rounded px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal"
+          onClick={handleClickOpen}
+        >
+          {"خیر"}
+        </button>
+        <button
+          type="submit"
+          onClick={handleRemoveItem}
+          className="bg-blue-gray-50 inline-block rounded px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal"
+        >
+          {" "}
           {isLoading && <Loader className="text-primary" />}
+          {"بله"}
         </button>
       </div>
     </Modal>

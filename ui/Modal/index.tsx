@@ -1,6 +1,7 @@
 import { PropsWithChildren, useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
 export interface IPortal {
   selector?: string;
@@ -82,7 +83,10 @@ const Modal = (props: PropsWithChildren<IPortal>) => {
                   },
                 }}
                 role={"modal"}
-                className={`${className} fixed top-0 bottom-0 left-0 right-0 md:rounded-lg m-auto z-[1000] bg-white flex flex-col`}
+                className={twMerge(
+                  "fixed top-0 bottom-0 left-0 right-0 md:rounded-lg m-auto z-[1000] bg-white flex flex-col",
+                  className
+                )}
               >
                 {children}
               </motion.aside>

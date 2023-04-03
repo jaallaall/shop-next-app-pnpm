@@ -26,6 +26,7 @@ specifiers:
   react-redux: ^8.0.5
   redux-persist: ^6.0.0
   swiper: ^9.1.1
+  tailwind-merge: ^1.11.0
   tailwindcss: ^3.2.7
   typescript: 4.9.5
   usehooks-ts: ^2.9.1
@@ -62,6 +63,7 @@ dependencies:
 devDependencies:
   autoprefixer: 10.4.14_postcss@8.4.21
   postcss: 8.4.21
+  tailwind-merge: 1.11.0
   tailwindcss: 3.2.7
 
 packages:
@@ -342,7 +344,7 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      tailwind-merge: 1.10.0
+      tailwind-merge: 1.11.0
     dev: false
 
   /@motionone/animation/10.15.1:
@@ -3242,9 +3244,8 @@ packages:
     resolution: {integrity: sha512-4kl5w+nCB44EVRdO0g/UGoOp3vlwgycUVtkk/7DPyeLZUCuNFFKCFG6/t/DgHLrUPHjrZg6s5tNm+56Q2B0xyg==}
     dev: false
 
-  /tailwind-merge/1.10.0:
-    resolution: {integrity: sha512-WFnDXSS4kFTZwjKg5/oZSGzBRU/l+qcbv5NVTzLUQvJ9yovDAP05h0F2+ZFW0Lw9EcgRoc2AfURUdZvnEFrXKg==}
-    dev: false
+  /tailwind-merge/1.11.0:
+    resolution: {integrity: sha512-oG3/328Y7LrfPMfkgMNxoqEk1ZQdXBxdphf9FFrreo8q0EtVIHt3bQf2IyFhQuVt8puB57lCRBNbazGhYAyz9w==}
 
   /tailwindcss/3.2.7:
     resolution: {integrity: sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==}
