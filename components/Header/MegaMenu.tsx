@@ -37,10 +37,23 @@ export const MenuLg: React.FC = (): React.ReactElement => {
                 <Link
                   key={item.id}
                   href={item.href}
-                  className="block p-2"
+                  className="py-3 px-2 hover:bg-white text-[15px] text-gray-800 flex justify-between"
                   onMouseEnter={() => handleMouseDown(item.id)}
                 >
                   {item.name}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={20}
+                    height={20}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
                 </Link>
               );
             })}
@@ -50,13 +63,13 @@ export const MenuLg: React.FC = (): React.ReactElement => {
             return (
               show.includes(item.id) && (
                 <>
-                  <div className="md:grid md:grid-cols-3 gap-2 p-3 scrollbar">
+                  <div className="md:grid md:grid-cols-3 gap-3 p-3 scrollbar h-screen">
                     {item.subMenu.map((subItem) => {
                       return (
                         <div key={subItem.id}>
                           <Link
                             href={subItem.href}
-                            className="block text-[16px]"
+                            className="block text-[16px] border-r-2 border-primary pr-2"
                           >
                             {subItem.title}
                           </Link>
@@ -75,7 +88,7 @@ export const MenuLg: React.FC = (): React.ReactElement => {
                   </div>
 
                   <div className="space-y-2 scrollbar border-r pr-2">
-                    <h4>برندها</h4>
+                    <h4 className="border-r-2 border-primary pr-2">برندها</h4>
                     {item.brands.map((it) => (
                       <Link
                         href={it.href}

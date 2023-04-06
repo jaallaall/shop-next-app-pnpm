@@ -80,7 +80,7 @@ const Portal = (props: PropsWithChildren<IPortal>) => {
                   },
                 }}
                 role={"sidebar"}
-                className={`${className} z-[1000] bg-white flex flex-col`}
+                className={`${className} z-[1000] bg-white flex flex-col fixed top-0 right-0 bottom-0 left-0`}
               >
                 {children}
               </motion.aside>

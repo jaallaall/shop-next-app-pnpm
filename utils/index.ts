@@ -1,3 +1,5 @@
+// import { ClassValue, clsx } from "clsx";
+// import { twMerge } from "tailwind-merge";
 import { Options } from "interfaces";
 
 export * from "./megaMenu";
@@ -5,6 +7,10 @@ export * from "./data";
 export * from "./validationSchema";
 
 export const uderscore = (val: string) => val.replace(/\s+/g, "_");
+
+// export function cn(...inputs: ClassValue[]) {
+//   return twMerge(clsx(inputs));
+// }
 
 export const randomId = (length = 6) => {
   return Math.random()
