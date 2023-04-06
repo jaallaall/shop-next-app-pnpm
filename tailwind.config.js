@@ -42,6 +42,10 @@ module.exports = withMT({
           100: "#f9c2cd",
           DEFAULT: "#f97a93",
         },
+        success: {
+          DEFAULT: "#D6FAE4",
+          dark: "#0E7537",
+        },
       },
     },
   },
