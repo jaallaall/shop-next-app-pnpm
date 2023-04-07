@@ -16,7 +16,7 @@ export default function RootLayout({
   const pathname = usePathname();
   const matches = useMediaQuery("(min-width: 768px)");
 
-  if (pathname?.search("invoicedetail")) {
+  if (pathname?.match("invoicedetail")) {
     return (
       <section>
         <div className="container px-3 mx-auto">{children}</div>
