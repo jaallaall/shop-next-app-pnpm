@@ -2,7 +2,7 @@ const Invoicedetail: React.FC = (): React.ReactElement => {
   return (
     <>
       <div
-        className="mb-3 w-max items-center rounded-lg bg-success px-6 py-5 text-base text-success-dark"
+        className="mb-3 w-fit items-center rounded-lg bg-success px-6 py-5 text-base text-success-dark"
         role="alert"
       >
         <div className="flex mb-3">
@@ -101,7 +101,7 @@ const Invoicedetail: React.FC = (): React.ReactElement => {
                   0
                 </td>
                 <td className="border border-slate-300 dark:border-slate-700 md:p-4 p-2 text-slate-500 dark:text-slate-400">
-                  <p className="w-40">
+                  <p className="md:w-auto w-40">
                     زانو 90 درجه جوشی بدون درز شعاع بلند رده 40 بنکن (BENKAN)
                   </p>
                 </td>
