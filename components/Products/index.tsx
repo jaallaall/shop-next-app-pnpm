@@ -54,7 +54,7 @@ const Products: React.FC = (): React.ReactElement => {
             />
           </div>
           <div className="md:p-8 p-4 md:min-h-[300px] min-h-[100px] flex items-center justify-center rounded-r-2xl rounded-br-2xl bg-primary text-white text-center -mr-10 relative z-10">
-            <h1 className="text-3xl text-inherit">
+            <h1 className="md:text-3xl text-xl text-inherit">
               {decodeURIComponent(pathname as string)
                 ?.split("/")[2]
                 .replace(/_/g, " ")}
