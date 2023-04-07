@@ -21,7 +21,7 @@ const ProductGrouping: React.FC = (): React.ReactElement => {
         </div>
         <ByBrands />
         <hr />
-        <div className="mt-4">
+        <div className="mt-4 text-justify">
           <p>
             لوله‌ها، استوانه‌هایی تو خالی هستند که برای انتقال سیالات در بسیاری
             از صنایع، کاربرد دارند. مردم هزاران سال است که از لوله‌ها برای اهداف

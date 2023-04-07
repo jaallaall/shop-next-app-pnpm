@@ -1,7 +1,7 @@
 const Description: React.FC = (): React.ReactElement => {
   return (
     <div
-      className="mb-4 mt-8 rounded-lg bg-success-100 text-base text-success-700"
+      className="mb-4 mt-8 rounded-lg p-4 bg-success-100 text-base text-success-700 text-justify"
       role="alert"
     >
       <h4 className="mb-2 text-2xl font-medium leading-tight">

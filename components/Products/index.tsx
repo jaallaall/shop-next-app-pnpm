@@ -5,11 +5,13 @@ import {
   AccordionBody,
   AccordionHeader,
 } from "@material-tailwind/react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Breadcrumbs, Icon } from "ui";
 import { useMediaQuery } from "usehooks-ts";
 import { products } from "utils";
+import ByGrouping from "./ByGrouping";
 import Description from "./Description";
 import ProductDetail from "./ProductDetail";
 import ProductDetailXs from "./ProductDetailXs";
@@ -40,6 +42,29 @@ const Products: React.FC = (): React.ReactElement => {
     <section>
       <div className="container px-3 mx-auto">
         <Breadcrumbs pathname={pathname as string} />
+        <div className="grid md:grid-cols-2 rounded-r-2xl overflow-hidden mb-6">
+          <div className=" text-white text-center p-4 relative min-h-[150px]">
+            <Image
+              src="/static/images/removebg-preview.png"
+              alt="images"
+              fill
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </div>
+          <div className="md:p-8 p-4 md:min-h-[300px] min-h-[100px] flex items-center justify-center rounded-r-2xl rounded-br-2xl bg-primary text-white text-center -mr-10 relative z-10">
+            <h1 className="text-3xl text-inherit">
+              {decodeURIComponent(pathname as string)
+                ?.split("/")[2]
+                .replace(/_/g, " ")}
+            </h1>
+          </div>
+        </div>
+        <div>
+          <h3>بر اساس دسته بندی</h3>
+        </div>
+        <ByGrouping />
         <Search />
         {products.map((item, index) => {
           return (

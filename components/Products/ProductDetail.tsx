@@ -29,7 +29,7 @@ const ProductDetail: React.FC<{
         return (
           <div
             className={`grid grid-cols-[repeat(5,minmax(0,_1fr))_180px_minmax(0,_1fr)] gap-3 text-center justify-center items-center text-blue-gray-500 text-[15px] ${
-              indx * 2 ? "bg-blue-gray-[20]" : "bg-blue-gray-50"
+              indx % 2 === 1 ? "bg-blue-gray-[20]" : "bg-blue-gray-50"
             }`}
             key={indx}
           >
