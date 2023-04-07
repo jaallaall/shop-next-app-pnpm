@@ -232,7 +232,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
   }
 
   return (
-    <Menu lockScroll placement="top-end">
+    <Menu lockScroll placement="top-end" open={open} handler={setOpen}>
       {cart.length > 0 ? <MenuHandler>{btn}</MenuHandler> : btn}
       <MenuList className="scrollbar max-h-[calc(100vh_-_60px)] mt-6">
         {basket}

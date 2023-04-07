@@ -1,13 +1,19 @@
+"use client";
+
 import CartDetails from "components/Header/CartDetails";
 import Search from "components/Header/Search";
 import SendShoppingList from "components/Header/SendShoppingList";
 import { useState } from "react";
 import { Modal } from "ui";
+import { useMediaQuery } from "usehooks-ts";
 
-const FooterXs: React.FC = (): React.ReactElement => {
+const FooterXs: React.FC = (): React.ReactElement | null => {
   const [open, setOpen] = useState<boolean>(false);
   const [open1, setOpen1] = useState<boolean>(false);
-  return (
+
+  const matches = useMediaQuery("(max-width: 768px)");
+
+  return matches ? (
     <footer className="sticky bottom-0 bg-white z-50 border-t">
       <div className="grid grid-cols-3">
         <div className="py-2">
@@ -78,7 +84,7 @@ const FooterXs: React.FC = (): React.ReactElement => {
         </div>
       </div>
     </footer>
-  );
+  ) : null;
 };
 
 export default FooterXs;

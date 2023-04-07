@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 
-const Invoicedetail = dynamic(() => import("components/Invoicedetail"));
+const Invoicedetail = dynamic(
+  () => import("components/UserPanel/Invoicedetail")
+);
 
 export const metadata = {
   title: "جزییات پیش فاکتور",

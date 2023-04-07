@@ -111,7 +111,7 @@ const ProductDetailXs: React.FC<{ item: PropsData; title: TitleType }> = ({
             <Modal
               open={open.includes(slide.id)}
               onClose={handleClickClose}
-              className="fixed bottom-0 left-0 right-0 rounded-t-lg min-h-[200px] p-3"
+              className="rounded-t-lg top-auto min-h-[200px] p-3"
             >
               {Object.keys(slide.detail).map((elm, i) => {
                 return (

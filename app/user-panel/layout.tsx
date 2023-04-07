@@ -1,18 +1,28 @@
 "use client";
 
-import Sidebar from "./Sidebar";
+import Sidebar from "components/UserPanel/Sidebar";
+import { usePathname } from "next/navigation";
 import { Suspense, useState } from "react";
 import { BallTriangle } from "react-loader-spinner";
 import { Portal } from "ui";
 import { useMediaQuery } from "usehooks-ts";
 
-const PanelLayout: React.FC<{ children: React.ReactNode }> = ({
+export default function RootLayout({
   children,
-}): React.ReactElement => {
+}: {
+  children: React.ReactNode;
+}) {
   const [open, setOpen] = useState<boolean>(false);
-
+  const pathname = usePathname();
   const matches = useMediaQuery("(min-width: 768px)");
 
+  if (pathname?.search("invoicedetail")) {
+    return (
+      <section>
+        <div className="container px-3 mx-auto">{children}</div>
+      </section>
+    );
+  }
   return (
     <section>
       <div className="container px-3 mx-auto md:grid md:grid-cols-7 gap-3">
@@ -51,6 +61,7 @@ const PanelLayout: React.FC<{ children: React.ReactNode }> = ({
             <Sidebar setOpen={setOpen} />
           </Portal>
         )}
+
         <main className="md:col-span-5 bg-gray-200 border rounded-lg p-3">
           <Suspense
             fallback={
@@ -61,6 +72,7 @@ const PanelLayout: React.FC<{ children: React.ReactNode }> = ({
                 color="#285192"
                 ariaLabel="ball-triangle-loading"
                 visible={true}
+                wrapperClass="m-auto h-screen justify-center items-center"
               />
             }
           >
@@ -70,6 +82,4 @@ const PanelLayout: React.FC<{ children: React.ReactNode }> = ({
       </div>
     </section>
   );
-};
-
-export default PanelLayout;
+}

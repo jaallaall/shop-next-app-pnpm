@@ -1,8 +1,7 @@
-import AppProvider from "components/Layout";
-import AuthContext from "components/Layout/AuthContext";
-import ReactQueryWrapper from "components/Layout/ReactQueryWrapper";
-import { Session } from "next-auth";
-import { headers } from "next/headers";
+import Footer from "components/Footer";
+import FooterXs from "components/Footer/FooterXs";
+import Header from "components/Header";
+import AppProvider from "components/Provider";
 import "styles/globals.css";
 
 export const metadata = {
@@ -26,21 +25,24 @@ export const metadata = {
 //   return Object.keys(session).length > 0 ? session : null;
 // }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   // const session = await getSession(headers().get("cookie") ?? "");
+
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <ReactQueryWrapper>
-          {/* <AuthContext session={session}> */}
-          <AppProvider>{children}</AppProvider>
-          {/* </AuthContext> */}
-        </ReactQueryWrapper>
-        {/* <div id="sidebar"></div> */}
+        <AppProvider>
+          <Header />
+
+          {children}
+
+          <Footer />
+          <FooterXs />
+        </AppProvider>
       </body>
     </html>
   );

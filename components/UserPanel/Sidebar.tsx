@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { Dispatch } from "react";
 import { useAppSelector } from "redux/hooks";
 
 const menu = [
@@ -9,7 +12,7 @@ const menu = [
   { title: "خروج", id: 4, href: "/" },
 ];
 
-const Sidebar: React.FC<{ setOpen?: (e: boolean) => void }> = ({
+const Sidebar: React.FC<{ setOpen?: Dispatch<boolean> }> = ({
   setOpen,
 }): React.ReactElement => {
   const cart = useAppSelector((state) => state.cartItems);

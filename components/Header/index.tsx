@@ -1,3 +1,5 @@
+"use client";
+
 import { useRect, useScrollDirection } from "hooks";
 import Image from "next/image";
 import Link from "next/link";
