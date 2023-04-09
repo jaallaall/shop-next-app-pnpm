@@ -15,11 +15,12 @@ interface ProvidersProps {
 
 const AppProvider: React.FC<ProvidersProps> = ({ children }) => {
   const pathname = usePathname();
-
+  const isLogin =
+    pathname?.endsWith("/register") || pathname?.endsWith("/login");
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       {/* <SessionProvider> */}
-      {!pathname?.endsWith("register") && <Header />}
+      {!isLogin && <Header />}
       <Suspense
         fallback={
           <BallTriangle
@@ -35,7 +36,7 @@ const AppProvider: React.FC<ProvidersProps> = ({ children }) => {
       >
         {children}
       </Suspense>
-      {!pathname?.endsWith("register") && (
+      {!isLogin && (
         <>
           <Footer />
           <FooterXs />

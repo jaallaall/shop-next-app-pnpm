@@ -65,10 +65,7 @@ const Register: React.FC = (): React.ReactElement => {
           <div className="flex flex-col">
             <h3 className="mb-3">ثبت نام</h3>
           </div>
-          <form
-            className="justify-center mb-3 space-y-3"
-            onSubmit={formik.handleSubmit}
-          >
+          <form className="justify-center mb-3" onSubmit={formik.handleSubmit}>
             <div className="relative">
               <input
                 className="block rounded-md border px-3 py-2.5 w-full text-sm text-gray-900 dark:bg-gray-700 border-gray-200 bg-gray-50 appearance-none focus:outline-none focus:ring-0 peer focus:placeholder:opacity-100"
@@ -87,9 +84,11 @@ const Register: React.FC = (): React.ReactElement => {
               </label>
             </div>
             {formik.touched.firstName && formik.errors.firstName && (
-              <div className="text-danger mt-2">{formik.errors.firstName}</div>
+              <div className="text-danger mt-1 text-sm">
+                {formik.errors.firstName}
+              </div>
             )}
-            <div className="relative">
+            <div className="relative mt-2">
               <input
                 className="block rounded-md border px-3 py-2.5 w-full text-sm text-gray-900 dark:bg-gray-700 border-gray-200 bg-gray-50 appearance-none focus:outline-none focus:ring-0 peer focus:placeholder:opacity-100"
                 placeholder=" "
@@ -107,9 +106,11 @@ const Register: React.FC = (): React.ReactElement => {
               </label>
             </div>
             {formik.touched.lastName && formik.errors.lastName && (
-              <div className="text-danger mt-2">{formik.errors.lastName}</div>
+              <div className="text-danger mt-1 text-sm">
+                {formik.errors.lastName}
+              </div>
             )}
-            <div className="relative">
+            <div className="relative mt-2">
               <input
                 className="block rounded-md border px-3 py-2.5 w-full text-sm text-gray-900 dark:bg-gray-700 border-gray-200 bg-gray-50 appearance-none focus:outline-none focus:ring-0 peer placeholder:opacity-0"
                 type="tel"
@@ -127,9 +128,11 @@ const Register: React.FC = (): React.ReactElement => {
               </label>
             </div>
             {formik.touched.phone && formik.errors.phone && (
-              <div className="text-danger mt-2">{formik.errors.phone}</div>
+              <div className="text-danger mt-1 text-sm">
+                {formik.errors.phone}
+              </div>
             )}
-            <div className="relative">
+            <div className="relative mt-2">
               <input
                 className="block rounded-md border px-3 py-2.5 w-full text-sm text-gray-900 dark:bg-gray-700 border-gray-200 bg-gray-50 appearance-none focus:outline-none focus:ring-0 peer focus:placeholder:opacity-100"
                 placeholder=" "
@@ -148,9 +151,11 @@ const Register: React.FC = (): React.ReactElement => {
               <PasswordShow showPass={showPass} setShowPass={setShowPass} />
             </div>
             {formik.touched.password && formik.errors.password && (
-              <div className="text-danger mt-2">{formik.errors.password}</div>
+              <div className="text-danger mt-1 text-sm">
+                {formik.errors.password}
+              </div>
             )}
-            <div className="relative">
+            <div className="relative mt-2">
               <input
                 className="block rounded-md border px-3 py-2.5 w-full text-sm text-gray-900 dark:bg-gray-700 border-gray-200 bg-gray-50 appearance-none focus:outline-none focus:ring-0 peer focus:placeholder:opacity-100"
                 placeholder=" "
@@ -170,7 +175,7 @@ const Register: React.FC = (): React.ReactElement => {
             </div>
             {formik.touched.confirmPassword &&
               formik.errors.confirmPassword && (
-                <div className="text-danger mt-2">
+                <div className="text-danger mt-1 text-sm">
                   {formik.errors.confirmPassword}
                 </div>
               )}

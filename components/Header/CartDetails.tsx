@@ -75,7 +75,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
     if (!success) push("/login");
     if (cartItems.length === 0) push("/user-panel");
     push("/user-panel/invoicedetail");
-    // setOpen(false);
+    setOpen(false);
   };
 
   const handleClickRemoveItem = (item: Props) => {
