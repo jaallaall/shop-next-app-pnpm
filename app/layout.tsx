@@ -1,7 +1,4 @@
-import Footer from "components/Footer";
-import FooterXs from "components/Footer/FooterXs";
-import Header from "components/Header";
-import AppProvider from "components/Provider";
+import Providers from "components/Providers";
 import "styles/globals.css";
 
 export const metadata = {
@@ -30,17 +27,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const session = await getSession(headers().get("cookie") ?? "");
-
   return (
     <html lang="fa" dir="rtl">
-      <body>
-        <AppProvider>
-          <Header />
-          {children}
-          <Footer />
-          <FooterXs />
-        </AppProvider>
+      <body className="flex flex-col min-h-screen text-right text-[15px] text-blue-gray-500 bg-white relative">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,7 +1,6 @@
 import BtnCart from "components/Home/BtnCart";
 import { PropsData, TitleType } from "interfaces";
 import { useState } from "react";
-import { useAppSelector } from "redux/hooks";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Modal } from "ui";
@@ -9,6 +8,7 @@ import { amount } from "utils";
 
 // Import Swiper styles
 import "swiper/swiper.min.css";
+import { useAppSelector } from "redux/store";
 
 type ItemType = keyof Omit<TitleType, "detail">;
 
@@ -18,7 +18,7 @@ const ProductDetailXs: React.FC<{ item: PropsData; title: TitleType }> = ({
 }): React.ReactElement => {
   const [open, setOpen] = useState<number[]>([]);
 
-  const cartItem = useAppSelector((state) => state.cartItems);
+  const { cartItems } = useAppSelector((state) => state.cartReducer);
 
   const handleClick = (id: number) => {
     const arr = [];
@@ -56,7 +56,7 @@ const ProductDetailXs: React.FC<{ item: PropsData; title: TitleType }> = ({
               .filter((it) => it !== "id")
               .map((itm) => {
                 const total =
-                  (cartItem.find((cart) => cart.id === slide.id)
+                  (cartItems.find((cart) => cart.id === slide.id)
                     ?.quantity as number) * slide.price;
 
                 if (

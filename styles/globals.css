@@ -63,24 +63,9 @@
     font-display: swap;
   }
 
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-size: 15px;
-    text-align: right;
-    color: #555;
-    background-color: #f8f8f8;
-    position: relative;
-  }
-
   /* body>div[data-aria-hidden='true'] {
     overflow: hidden;
   } */
-
-  footer {
-    margin-top: auto;
-  }
 
   section {
     padding-top: 16px;
@@ -114,7 +99,7 @@ h4,
 h5,
 h6,
 .text-\[16px\] {
-  color: #000
+  @apply text-blue-gray-900
 }
 
 .icon {

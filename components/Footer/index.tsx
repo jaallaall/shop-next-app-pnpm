@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer: React.FC = (): React.ReactElement => {
   return (
-    <footer className="bg-white text-justify text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 ">
+    <footer className="bg-white text-justify text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 mt-auto">
       <div className="container mx-auto px-3">
         <div className="flex items-center justify-center border-b-2 border-neutral-200 py-6 dark:border-neutral-500 lg:justify-between">
           <div className="ml-12 hidden lg:block">

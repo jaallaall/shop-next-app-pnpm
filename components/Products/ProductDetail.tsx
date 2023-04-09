@@ -1,14 +1,14 @@
 import { Menu, MenuHandler, MenuList } from "@material-tailwind/react";
 import BtnCart from "components/Home/BtnCart";
 import { Options, PropsData, TitleType } from "interfaces";
-import { useAppSelector } from "redux/hooks";
+import { useAppSelector } from "redux/store";
 import { amount } from "utils";
 
 const ProductDetail: React.FC<{
   item: PropsData;
   title: TitleType;
 }> = ({ item, title }): React.ReactElement => {
-  const cartItem = useAppSelector((state) => state.cartItems);
+  const { cartItems } = useAppSelector((state) => state.cartReducer);
   return (
     <>
       <div className="grid grid-cols-[repeat(5,minmax(0,_1fr))_180px_minmax(0,_1fr)] gap-3 text-center justify-center items-center">
@@ -36,7 +36,7 @@ const ProductDetail: React.FC<{
             {Object.keys(it).map((val, inx) => {
               const res = (it as Options)[val];
               const total =
-                (cartItem.find((cart) => cart.id === it.id)
+                (cartItems.find((cart) => cart.id === it.id)
                   ?.quantity as number) * it.price;
               if (typeof res === "object") {
                 return (

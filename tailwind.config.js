@@ -3,6 +3,7 @@ const plugin = require("tailwindcss/plugin");
 const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
+  darkMode: ["class"],
   mode: "jit",
   content: [
     "./**/*.{ts,tsx}",

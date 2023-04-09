@@ -1,23 +1,5 @@
+import Loader from "ui/Loader";
 import Modal from ".";
-import style from "./DialogQuestion.module.css";
-
-const Loader: React.FC<{ className: string }> = ({ className }) => {
-  return (
-    <svg
-      className={`${className} ${style["circular-loader"]} w-5 h-5 inline-block ml-4`}
-      viewBox="25 25 50 50"
-    >
-      <circle
-        className={style["loader-path"]}
-        cx={50}
-        cy={50}
-        r={20}
-        fill="none"
-        strokeWidth={2}
-      />
-    </svg>
-  );
-};
 
 const DialogQuestion: React.FC<{
   handleClickOpen: (e?: any) => void;
@@ -51,7 +33,7 @@ const DialogQuestion: React.FC<{
           className="bg-blue-gray-50 inline-block rounded px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal"
         >
           {" "}
-          {isLoading && <Loader className="text-primary" />}
+          <Loader loading={isLoading} />
           {"بله"}
         </button>
       </div>

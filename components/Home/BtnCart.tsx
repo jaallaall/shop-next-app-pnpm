@@ -5,7 +5,7 @@ import {
   incrementQuantity,
   valueQuantity,
 } from "redux/cart.slice";
-import { useAppDispatch, useAppSelector } from "redux/hooks";
+import { useAppDispatch, useAppSelector } from "redux/store";
 
 interface Props {
   id: number;
@@ -21,7 +21,7 @@ const BtnCart: React.FC<{
   classes?: string | boolean;
 }> = ({ item, classes }): React.ReactElement => {
   const dispatch = useAppDispatch();
-  const cart = useAppSelector((state) => state.cartItems);
+  const cart = useAppSelector(({ cartReducer }) => cartReducer.cartItems);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
