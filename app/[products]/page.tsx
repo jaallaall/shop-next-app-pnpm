@@ -1,3 +1,4 @@
+import Layout from "components/Layout";
 import dynamic from "next/dynamic";
 
 const ProductGrouping = dynamic(
@@ -10,6 +11,10 @@ export const metadata = {
     "انواع لوله و اتصالات آب و گاز، لوله و اتصالات فلزی و پلیمری، شیر آلات ، تجهیزات آتش نشانی و... با بهترین قیمت و ارسال به تمامی نقاط ایران",
 };
 
-export default function ProductGroupingPage() {
-  return <ProductGrouping />;
+export default async function ProductGroupingPage() {
+  return (
+    <Layout>
+      <ProductGrouping />
+    </Layout>
+  );
 }

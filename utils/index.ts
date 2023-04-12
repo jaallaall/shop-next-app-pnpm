@@ -18,6 +18,14 @@ export const randomId = (length = 6) => {
     .substring(2, length + 2);
 };
 
+export const formData = (data: Options) => {
+  const form = new FormData();
+  for (const key in data) {
+    if (data[key]) form.append(key, data[key]);
+  }
+  return form;
+};
+
 function camelToSnake(str: string) {
   let newKey = "";
   let index = 0;
@@ -158,14 +166,6 @@ export function shimmer(w?: number, h?: number) {
   }" dur="1s" repeatCount="indefinite"  />
 </svg>`)}`;
 }
-
-export const formData = (data: Options) => {
-  const form = new FormData();
-  for (const key in data) {
-    if (data[key]) form.append(key, data[key]);
-  }
-  return form;
-};
 
 export const removeUndefined = (o: Options) =>
   Object.entries(o)

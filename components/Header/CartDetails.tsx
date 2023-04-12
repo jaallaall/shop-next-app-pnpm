@@ -51,16 +51,10 @@ const CartDetails: React.FC = (): React.ReactElement => {
 
   const totalWithDiscount = (getItemsPrice() * 100) / getItemsDiscount();
 
-  // const handleClickOutside = () => {
-  //   setOpen(false);
-  // };
-
   const handleClickRemove = (item: Props) => {
     // setOpen(false);
     dispatch(removeFromCart(item.id));
   };
-
-  // useOnClickOutside(ref, handleClickOutside);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, item: Props) => {
@@ -72,9 +66,13 @@ const CartDetails: React.FC = (): React.ReactElement => {
   );
 
   const handleClickRoute = () => {
-    if (!success) push("/login");
-    if (cartItems.length === 0) push("/user-panel");
-    push("/user-panel/invoicedetail");
+    if (success) {
+      push("/user-panel/invoicedetail");
+    } else if (success && cartItems.length === 0) {
+      push("/user-panel");
+    } else {
+      push("/login");
+    }
     setOpen(false);
   };
 
@@ -246,7 +244,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
 
   return (
     <Menu lockScroll placement="top-end" open={open} handler={setOpen}>
-      {cartItems.length > 0 ? <MenuHandler>{btn}</MenuHandler> : btn}
+      <MenuHandler>{btn}</MenuHandler>
       <MenuList className="scrollbar max-h-[calc(100vh_-_60px)] mt-6">
         {basket}
       </MenuList>

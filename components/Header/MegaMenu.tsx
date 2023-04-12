@@ -8,7 +8,7 @@ import {
 } from "@material-tailwind/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Icon } from "ui";
 
 import { megaMenu } from "utils";
@@ -62,8 +62,8 @@ export const MenuLg: React.FC = (): React.ReactElement => {
           {megaMenu.map((item) => {
             return (
               show.includes(item.id) && (
-                <>
-                  <div className="md:grid md:grid-cols-3 gap-3 p-3 scrollbar h-screen">
+                <Fragment key={item.id}>
+                  <div className="md:grid md:grid-cols-3 gap-3 p-3 scrollbar">
                     {item.subMenu.map((subItem) => {
                       return (
                         <div key={subItem.id}>
@@ -106,7 +106,7 @@ export const MenuLg: React.FC = (): React.ReactElement => {
                       </Link>
                     ))}
                   </div>
-                </>
+                </Fragment>
               )
             );
           })}

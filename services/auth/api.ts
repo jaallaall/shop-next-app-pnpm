@@ -9,7 +9,7 @@ export const authenticate = async (body: {
   firstName: string;
   lastName: string;
 }) => {
-  const { data } = await instance.post(Api.SignUp, {
+  const { data } = await instance.post(Api.SIGNUP, {
     Phone: body.phone,
     Password: body.password,
     ConfirmPassword: body.confirmPassword,

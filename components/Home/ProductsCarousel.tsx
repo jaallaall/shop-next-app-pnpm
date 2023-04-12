@@ -5,11 +5,12 @@ import { amount, product, uderscore } from "utils";
 import BtnCart from "./BtnCart";
 
 const ProductsCarousel: React.FC = (): React.ReactElement => {
+  const group = "اتصالات فلزی";
   return (
     <>
       <div className="flex justify-between mb-6">
         <h3>پرفروش های پایپ کالا</h3>
-        <Link href="/">
+        <Link href={"/" + uderscore(group)}>
           مشاهده بیشتر
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +23,7 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
       </div>
       <div className="md:grid md:grid-cols-[200px_minmax(0,1fr)] md:border md:p-3 md:rounded-lg md:border-gray-300">
         <div className="hidden md:flex md:flex-col">
-          <h3>اتصالات فلزی</h3>
+          <h3>{group}</h3>
           <span className="relative h-full w-full">
             <Image
               src="/static/images/Untitled-1_20220919141902.499-45262FA.png"

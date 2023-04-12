@@ -3,9 +3,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  env: {
-    NEXT_PUBLIC_API_URL: "http://193.141.127.116/denaapi1/api/",
-  },
+  // env: {
+  //   NEXT_PUBLIC_ENV_VARIABLE: process.env.NEXT_PUBLIC_ENV_VARIABLE,
+  // },
   async headers() {
     return [
       {

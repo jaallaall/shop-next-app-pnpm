@@ -3,6 +3,7 @@
 import { useRect, useScrollDirection } from "hooks";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
 import { useAppSelector } from "redux/store";
 import { useMediaQuery } from "usehooks-ts";
@@ -10,11 +11,16 @@ import CartDetails from "./CartDetails";
 import NavbarMenu from "./Menu";
 import Search from "./Search";
 
-const Header: React.FC = (): React.ReactElement => {
-  const matches = useMediaQuery("(min-width: 768px)");
+const Header: React.FC = (): React.ReactElement | null => {
   const [show, setShow] = useState<boolean>(false);
-
   const ref = useRef(null);
+  const pathname = usePathname();
+  const matches = useMediaQuery("(min-width: 768px)");
+
+  // const dehydratedState = dehydrate(queryClient);
+  const isLogin =
+    pathname?.endsWith("/register") || pathname?.endsWith("/login");
+
   const contentRect = useRect(ref);
 
   const userInfo = useAppSelector((state) => state.authReducer.userInfo);
@@ -24,6 +30,10 @@ const Header: React.FC = (): React.ReactElement => {
   const handleClick = () => {
     setShow(!show);
   };
+
+  // if (isLogin) {
+  //   return null;
+  // }
 
   return (
     <header
@@ -79,7 +89,7 @@ const Header: React.FC = (): React.ReactElement => {
 
         <div className="flex justify-end">
           {Object.keys(userInfo).length === 0 ? (
-            <Link href="/register">
+            <Link href="/login">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"

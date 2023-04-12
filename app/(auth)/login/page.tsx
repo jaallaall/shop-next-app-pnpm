@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Auth = dynamic(() => import("components/Auth"));
+const Login = dynamic(() => import("components/Auth/Login"));
 
 export const metadata = {
   title: "ورود",
@@ -8,5 +8,5 @@ export const metadata = {
 };
 
 export default function LoginPage() {
-  return <Auth />;
+  return <Login />;
 }

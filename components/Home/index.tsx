@@ -8,7 +8,11 @@ import PurchaseProcess from "./PurchaseProcess";
 import Slider from "./Slider";
 import SuccessReport from "./SuccessReport";
 
-const Home: React.FC = (): React.ReactElement => {
+interface Props {
+  dataCategories: any;
+}
+
+const Home: React.FC<Props> = ({ dataCategories }): React.ReactElement => {
   return (
     <>
       <section className="!pb-0">
@@ -19,7 +23,7 @@ const Home: React.FC = (): React.ReactElement => {
 
       <section>
         <div className="container mx-auto px-2">
-          <ProductsCategorization />
+          <ProductsCategorization dataCategories={dataCategories} />
         </div>
       </section>
       <section>

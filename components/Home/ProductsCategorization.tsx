@@ -2,7 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { prods, uderscore } from "utils";
 
-const ProductsCategorization: React.FC = (): React.ReactElement => {
+const ProductsCategorization: React.FC<{ dataCategories: any }> = ({
+  dataCategories,
+}): React.ReactElement => {
+  console.log(dataCategories);
   return (
     <div>
       <h3 className="mb-6">دسته بندی محصولات</h3>

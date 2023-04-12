@@ -1,5 +1,6 @@
 "use client";
 
+import { Api } from "interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,8 +23,18 @@ const Sidebar: React.FC<{ setOpen?: Dispatch<boolean> }> = ({
   const dispatch = useAppDispatch();
 
   const handleClickLogout = () => {
-    dispatch(logout());
-    push("/");
+    fetch(Api.LOGOUT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(logout());
+        push("/");
+      });
   };
   return (
     <>
@@ -38,7 +49,7 @@ const Sidebar: React.FC<{ setOpen?: Dispatch<boolean> }> = ({
         <h5 className="text-inherit">9390157719</h5>
       </div>
       <div className="p-2 overflow-hidden">
-        <div className="scrollbar h-full p-2">
+        <div className="scrollbar h-full px-2 pt-2 pb-10 ">
           <ul>
             {menu.map((item) => {
               return (
@@ -67,7 +78,7 @@ const Sidebar: React.FC<{ setOpen?: Dispatch<boolean> }> = ({
                       <span className="flex-grow">{item.title}</span>
                       {item?.order && (
                         <span className="ml-2 inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700">
-                          {cart.length}
+                          {cart?.length}
                         </span>
                       )}
 

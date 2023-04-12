@@ -1,3 +1,4 @@
+import Layout from "components/Layout";
 import dynamic from "next/dynamic";
 
 const Products = dynamic(() => import("components/Products"));
@@ -9,5 +10,9 @@ export const metadata = {
 };
 
 export default function ProductsPage() {
-  return <Products />;
+  return (
+    <Layout>
+      <Products />
+    </Layout>
+  );
 }

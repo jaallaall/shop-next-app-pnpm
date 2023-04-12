@@ -1,3 +1,4 @@
+import Layout from "components/Layout";
 import dynamic from "next/dynamic";
 
 const ContactUs = dynamic(() => import("components/WorkWithUs"));
@@ -8,5 +9,9 @@ export const metadata = {
 };
 
 export default function ContactUsPage() {
-  return <ContactUs />;
+  return (
+    <Layout>
+      <ContactUs />
+    </Layout>
+  );
 }

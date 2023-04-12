@@ -1,5 +1,11 @@
 import { products } from "utils";
 
+export const url = "http://193.141.127.116/denaapi1/api/";
+export const headers = {
+  Accept: "application/json",
+  "Content-Type": "multipart/form-data",
+};
+
 export interface Options {
   [key: string]: any;
 }
@@ -10,7 +16,10 @@ export enum Pages {
 
 // enum api and keys
 export enum Api {
-  SignUp = "Users/signup",
+  SIGNUP = "http://193.141.127.116/denaapi1/api/Users/signup",
+  LOGIN = "http://193.141.127.116/denaapi1/api/Users/login",
+  CATEGORIES = "http://193.141.127.116/denaapi1/api/Categories",
+  LOGOUT = "http://193.141.127.116/denaapi1/api/Users/logout",
 }
 
 export type PropsData = typeof products[0];
